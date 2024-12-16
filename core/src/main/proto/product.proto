@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+option java_package = "com.mouts.order.api.core.infrastructure.grpc";
+
+service ProductService {
+  rpc CheckProductsExistence (ProductRequest) returns (ProductResponse);
+}
+
+message ProductRequest {
+  repeated string productIds = 1;
+}
+
+
+message ProductResponse {
+  repeated ProductExistence productExistence = 1;
+}
+
+
+message ProductExistence {
+  string productId = 1;
+  int32 stockAmount = 2;
+  double value = 3;
+}

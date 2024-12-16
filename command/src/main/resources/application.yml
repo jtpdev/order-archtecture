@@ -1,0 +1,9 @@
+server:
+  port: 8093
+
+spring:
+  kafka:
+    producer:
+      bootstrap-servers: ${KAFKA_ADVERTISED_LISTENER}
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: com.mouts.order.api.command.infrastructure.messaging.OrderSerializer
